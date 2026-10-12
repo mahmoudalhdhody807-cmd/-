@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="description" content="مُحاسِبي السعودية — مسار تعليمي تفاعلي للمحاسبة والضرائب والزكاة والتطبيق العملي في السعودية.">
+  <title>مُحاسِبي | أكاديمية المحاسبة السعودية</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="مُحاسِبي — الرئيسية">
+        <span class="brand-mark"><img src="assets/mark.svg" alt=""></span>
+        <span><strong>مُحاسِبي</strong><small>أكاديمية السعودية</small></span>
+      </a>
+      <div class="sidebar-label">مساحة التعلم</div>
+      <nav class="nav-list" aria-label="القائمة الرئيسية">
+        <button class="nav-link active" data-view="home"><span class="nav-icon">⌂</span><span>لوحة التعلم</span></button>
+        <button class="nav-link" data-view="theory"><span class="nav-icon">▤</span><span>المنهج النظري</span><span class="nav-count" id="theory-count">18</span></button>
+        <button class="nav-link" data-view="practice"><span class="nav-icon">◈</span><span>التدريب العملي</span></button>
+        <button class="nav-link" data-view="erp"><span class="nav-icon">▦</span><span>مختبر ERP</span></button>
+        <button class="nav-link" data-view="interview"><span class="nav-icon">◉</span><span>مواقف المقابلات</span></button>
+      </nav>
+      <div class="sidebar-label">مراجع وأدوات</div>
+      <nav class="nav-list">
+        <button class="nav-link" data-view="resources"><span class="nav-icon">↗</span><span>المصادر الرسمية</span></button>
+        <button class="nav-link" data-action="export"><span class="nav-icon">⇩</span><span>تنزيل نسخة احتياطية</span></button>
+        <button class="nav-link" data-action="import-backup"><span class="nav-icon">⇧</span><span>استيراد نسخة احتياطية</span></button>
+        <button class="nav-link" data-action="reset"><span class="nav-icon">↺</span><span>إعادة ضبط التقدم</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="profile-mini"><span class="profile-avatar">م</span><div><strong>مسار المحاسب</strong><small>تعلّم على وتيرتك</small></div><span class="online-dot"></span></div>
+        <div class="sidebar-note">محتوى تدريبي — راجع النص النظامي الساري قبل أي إقرار فعلي.</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-start">
+          <button class="icon-button mobile-menu" id="mobile-menu" aria-label="فتح القائمة">☰</button>
+          <div class="breadcrumb"><span>الأكاديمية</span><span class="crumb-sep">/</span><strong id="breadcrumb-current">لوحة التعلم</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <div class="streak"><span>✦</span><span id="top-progress">0% مكتمل</span></div>
+          <button class="icon-button" id="theme-toggle" title="تبديل المظهر" aria-label="تبديل المظهر">☼</button>
+        </div>
+      </header>
+      <div class="content-wrap" id="app-content" tabindex="-1">
+        <section class="view active" id="view-home"></section>
+        <section class="view" id="view-theory"></section>
+        <section class="view" id="view-practice"></section>
+        <section class="view" id="view-erp"></section>
+        <section class="view" id="view-interview"></section>
+        <section class="view" id="view-resources"></section>
+      </div>
+      <footer class="app-footer"><span>مُحاسِبي · بيئة تدريب عربية للمحاسبة السعودية</span><span>الإصدار 1.0 · محتوى تعليمي قابل للتحديث</span></footer>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <input type="file" id="import-backup" accept="application/json" hidden>
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
