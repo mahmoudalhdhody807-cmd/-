@@ -8,6 +8,7 @@
   <title>مُحاسِبي | أكاديمية المحاسبة السعودية</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="extras.css">
 </head>
 <body>
   <div class="app-shell">
@@ -20,6 +21,7 @@
       <nav class="nav-list" aria-label="القائمة الرئيسية">
         <button class="nav-link active" data-view="home"><span class="nav-icon">⌂</span><span>لوحة التعلم</span></button>
         <button class="nav-link" data-view="theory"><span class="nav-icon">▤</span><span>المنهج النظري</span><span class="nav-count" id="theory-count">18</span></button>
+        <button class="nav-link" data-view="courses"><span class="nav-icon">▶</span><span>الكورسات</span></button>
         <button class="nav-link" data-view="practice"><span class="nav-icon">◈</span><span>التدريب العملي</span></button>
         <button class="nav-link" data-view="erp"><span class="nav-icon">▦</span><span>مختبر ERP</span></button>
         <button class="nav-link" data-view="interview"><span class="nav-icon">◉</span><span>مواقف المقابلات</span></button>
@@ -51,6 +53,7 @@
       <div class="content-wrap" id="app-content" tabindex="-1">
         <section class="view active" id="view-home"></section>
         <section class="view" id="view-theory"></section>
+        <section class="view" id="view-courses"></section>
         <section class="view" id="view-practice"></section>
         <section class="view" id="view-erp"></section>
         <section class="view" id="view-interview"></section>
@@ -64,6 +67,9 @@
   <div id="toast-region" class="toast-region" aria-live="polite"></div>
   <input type="file" id="import-backup" accept="application/json" hidden>
   <script src="content.js"></script>
+  <script src="book-1.js"></script>
   <script src="app.js"></script>
+  <script src="courses.js"></script>
+  <script src="chat.js"></script>
 </body>
 </html>

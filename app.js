@@ -102,16 +102,16 @@
   }
   function setTheme(theme){state.theme=theme; document.documentElement.dataset.theme=theme==='light'?'light':'dark'; const b=$('#theme-toggle'); if(b)b.textContent=theme==='dark'?'☼':'☾'; saveState();}
   function goto(view){
-    const allowed=['home','theory','practice','erp','interview','resources']; if(!allowed.includes(view))return;
+    const allowed=['home','theory','practice','erp','interview','resources','courses']; if(!allowed.includes(view))return;
     state.currentView=view; saveState();
     $$('.view').forEach(v=>v.classList.toggle('active',v.id===`view-${view}`));
     $$('.nav-link[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
-    const names={home:'لوحة التعلم',theory:'المنهج النظري',practice:'التدريب العملي',erp:'مختبر ERP',interview:'مواقف المقابلات',resources:'المصادر الرسمية'};
+    const names={home:'لوحة التعلم',theory:'المنهج النظري',practice:'التدريب العملي',erp:'مختبر ERP',interview:'مواقف المقابلات',resources:'المصادر الرسمية',courses:'الكورسات'};
     $('#breadcrumb-current').textContent=names[view]; $('#sidebar').classList.remove('open');
     renderView(view); $('#app-content').focus({preventScroll:true}); window.scrollTo({top:0,behavior:'smooth'});
   }
-  function renderView(view){
-    if(view==='home')renderHome(); if(view==='theory')renderTheory(); if(view==='practice')renderPractice(); if(view==='erp')renderERP(); if(view==='interview')renderInterview(); if(view==='resources')renderResources();
+  function renderView(view){window.Courses&&Courses.stop();
+    if(view==='home')renderHome(); if(view==='theory')renderTheory(); if(view==='practice')renderPractice(); if(view==='erp')renderERP(); if(view==='interview')renderInterview(); if(view==='resources')renderResources(); if(view==='courses'&&window.Courses)Courses.render();
   }
   function isUnlocked(index){return index===0 || window.COURSE_MODULES.slice(0,index).every(m=>state.completedModules.includes(m.id));}
   function courseProgress(){return Math.round(state.completedModules.length/window.COURSE_MODULES.length*100);}
